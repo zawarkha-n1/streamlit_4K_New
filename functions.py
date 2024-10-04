@@ -8,7 +8,7 @@ from datetime import timedelta
 from google.oauth2 import service_account
 import numpy as np
 
-
+@st.cache_data(ttl=3600*9)
 def all_data_for_stats():
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 
@@ -45,7 +45,7 @@ def all_data_for_stats():
     all_data = all_data.fillna(0)
     return all_data
 
-
+@st.cache_data(ttl=3600*9)
 def df_for_comp():
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 
